@@ -1,0 +1,86 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .approve-button {
+    background-color: #28a745;
+    color: #fff;
+    border: 1px solid #218838;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .reject-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: 1px solid #c82333;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .fas {
+    margin-right: 5px; 
+  }
+  
+  .approved {
+    color: #28a745; 
+  }
+  
+  .rejected {
+    color: #dc3545;
+  }table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .approved {
+    color: green;
+  }
+  
+  .rejected {
+    color: red;
+  }
+  
+  .approve-button, .reject-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .approve-button:hover {
+    color: green;
+  }
+  
+  .reject-button:hover {
+    color: red;
+  }

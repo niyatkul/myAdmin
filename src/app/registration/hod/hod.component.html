@@ -1,0 +1,41 @@
+
+<div class="registration-container">
+    <h2>Hod Registration</h2>
+    <form [formGroup]="hodData" (ngSubmit)="registerHod()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" formControlName="name" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" formControlName="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" formControlName="email" required>
+      </div>
+      <div class="form-group">
+        <label for="contactNumber">Contact Number</label>
+        <input type="tel" id="contactNumber" name="contactNumber" formControlName="contactNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="department">Department</label>
+        <select id="department" name="department" formControlName="department" required>
+          <option value="" disabled>Select Department</option>
+          <option value="hr">HR</option>
+          <option value="it">IT</option>
+          <option value="finance">FINANCE</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" formControlName="password" required>
+      </div>
+      <div class="form-group">
+        <label for="profileImage">Profile Image (Optional)</label>
+        <input type="file" id="profileImageInput" (change)="handleImageInput($event)">
+        <img *ngIf="hod.profileImage" [src]="hod.profileImage" alt="Profile Image" class="profile-image">
+      </div>
+       <button type="submit">Register</button>
+    </form>
+  </div>

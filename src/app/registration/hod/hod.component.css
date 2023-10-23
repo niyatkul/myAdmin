@@ -1,0 +1,64 @@
+.registration-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+  h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+    justify-content: left;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:hover {
+    background-color: #0056B3;
+  }
+
+  .profile-image {
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 10px;
+  }
