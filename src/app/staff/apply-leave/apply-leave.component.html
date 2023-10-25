@@ -1,18 +1,18 @@
-<!-- <div class="apply-leave-container">
-    <h2>Apply for Leave</h2>
-    <form (ngSubmit)="submitLeaveApplication()" #leaveForm="ngForm">
-      <div class="form-group">
-        <label for="fromDate">From Date</label>
-        <input type="date" id="fromDate" name="fromDate" [(ngModel)]="leaveData.fromDate" required>
-      </div>
-      <div class="form-group">
-        <label for="toDate">To Date</label>
-        <input type="date" id="toDate" name="toDate" [(ngModel)]="leaveData.toDate" required>
-      </div>
-      <div class="form-group">
-        <label for="reason">Reason</label>
-        <textarea id="reason" name="reason" [(ngModel)]="leaveData.reason" required></textarea>
-      </div>
-      <button type="submit" [disabled]="leaveForm.invalid">Submit Leave Application</button>
-    </form>
-  </div> -->
+<div class="apply-leave-container">
+  <h2>Apply for Leave</h2>
+  <form (ngSubmit)="submitLeaveApplication()" #leaveForm="ngForm">
+    <div class="form-group">
+      <label for="fromDate">From Date</label>
+      <input type="date" id="fromDate" name="fromDate" [(ngModel)]="leaveFromDate" required>
+    </div>
+    <div class="form-group">
+      <label for="toDate">To Date</label>
+      <input type="date" id="toDate" name="toDate" [(ngModel)]="leaveToDate" required>
+    </div>
+    <div class="form-group">
+      <label for="reason">Reason</label>
+      <textarea id="reason" name="reason" [(ngModel)]="reason" required></textarea>
+    </div>
+    <button type="submit" [disabled]="leaveForm.invalid">Submit Leave Application</button>
+  </form>
+</div>

@@ -18,8 +18,7 @@ export class LeaveManagementComponent implements OnInit {
     private dialog: MatDialog) {
     
   }
-
-  ngOnInit(): void {
+ ngOnInit(): void {
    
     this.leaveApplications = this.leaveService.getLeaveApplications();
   }

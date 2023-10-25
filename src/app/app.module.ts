@@ -26,6 +26,10 @@ import { StaffService } from './staff/staff.service';
 import { StaffModalComponent } from './hod/staff-modal/staff-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HodDashboardComponent } from './hod/hod-dashboard/hod-dashboard.component';
+import { LeaveMComponent } from './staff/leave-m/leave-m.component';
+import { StaffDashboardComponent } from './staff/staff-dashboard/staff-dashboard.component';
+import { ApplyLeaveService } from './staff/apply-leave.service';
 
 
 @NgModule({
@@ -42,9 +46,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     HodMenuComponent,
     StaffMenuComponent,
     StaffModalComponent,
-
-   
- ],
+    HodDashboardComponent,
+    StaffDashboardComponent ,
+    LeaveMComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -57,7 +62,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDialogModule
     
      ],
-  providers: [AuthGuard,RegistrationService, LoginService,LeaveService,DashboardService,StaffMService,StaffService,LeaveService],
+  providers: [AuthGuard,RegistrationService, LoginService,LeaveService,DashboardService,StaffMService,StaffService,LeaveService,ApplyLeaveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,7 +8,7 @@ import { LeaveApplication } from './leave';
   providedIn: 'root'
 })
 export class LeaveService {
-  private localStorageKey = 'leaveApplications';
+ private localStorageKey = 'leaveApplications';
 
  constructor(private leaveService:LeaveService,
     private http: HttpClient) { }
@@ -44,9 +44,5 @@ export class LeaveService {
         localStorage.setItem(this.localStorageKey, JSON.stringify(leaveApplications));
       }
     }
-
-
-
-
 }
 

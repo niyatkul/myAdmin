@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import { DashboardService } from './dashboard.service';
 
-describe('DashboardService', () => {
-  let service: DashboardService;
+import { ApplyLeaveService } from './apply-leave.service';
+
+describe('ApplyLeaveService', () => {
+  let service: ApplyLeaveService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DashboardService);
+    service = TestBed.inject(ApplyLeaveService);
   });
 
   it('should be created', () => {
