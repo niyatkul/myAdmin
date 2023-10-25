@@ -6,9 +6,10 @@ import { Injectable } from '@angular/core';
 export class DashboardService {
 
   constructor() { }
-
- getTotalStaffCount(): number {
+  getTotalStaffCount(): number {
     
-    return 50; 
+    const staffList = JSON.parse(localStorage.getItem('staffList') || '[]');
+    return staffList.length;
   }
+ 
 }

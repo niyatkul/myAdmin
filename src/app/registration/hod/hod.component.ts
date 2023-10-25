@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Hod } from '../hod';
+import { HOD } from '../hod';
 import { RegistrationService } from '../registration.service';
 import { Router } from '@angular/router';
 
@@ -10,20 +10,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./hod.component.css']
 })
 export class HodComponent implements OnInit {
-  
+ role: string = 'HOD';
   hodData: FormGroup;
 
-  hod: Hod = {
+  hod: HOD = {
     name: '',
     username: '',
     email: '',
     contactNumber: '',
     department: '',
     password: '',
-    profileImage: '',
+     role: ''
+   
   };
 
- constructor(
+    constructor(
     private fb: FormBuilder,
     private router: Router,
     private registrationService:RegistrationService) 
@@ -36,30 +37,32 @@ export class HodComponent implements OnInit {
     contactNumber: ['', Validators.required],
     department: ['', Validators.required],
     password: ['', Validators.required],
-    profileImage: [''],
+    role: ['hod'],
   } );
  
 }
- registerHod() {
-    if (this.hodData.valid) {
-      this.registrationService.registerHod(this.hodData.value); 
-      // console.log('Hod Registration Data:', this.hodData.value);
-      this.router.navigate(['/login']); 
-    }
+registerHod() {
+  if (this.hodData.valid) {
+    this.registrationService.registerHod(this.hodData.value);
+    console.log('Hod Registration Data:', this.hodData.value);
+    this.router.navigate(['/login']);
   }
-
- handleImageInput(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        if (e.target) {
-          this.hod.profileImage = e.target.result as string;
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  }
+}
+  // handleImageInput(event: any) {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onload = (e) => {
+  //       if (e.target) {
+  //         // Update your data with the profile image if needed
+  //         this.hodData.patchValue({
+  //           profileImage: e.target.result as string,
+  //         });
+  //       }
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // }
   ngOnInit() {
   
   }

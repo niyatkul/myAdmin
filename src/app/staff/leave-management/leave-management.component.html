@@ -1,27 +1,26 @@
 <div class="leave-management-container">
-    <h2>Staff Leave Management</h2>
-    <table>
-      <thead>
-        <tr>
-           <th>Sr No</th>
-          <th>From Date</th>
-          <th>To Date</th>
-          <th>Reason</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let leave of leaveRequests">
-            <td>{{ leave.srNo }}</td>
-            <td>{{ leave.fromDate }}</td>
-          <td>{{ leave.toDate }}</td>
-          <td>{{ leave.reason }}</td>
-          <td>{{ leave.status }}</td>
-          <td>
-            <button (click)="viewLeaveDetails(leave)">View</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h2>Staff Leave Management</h2>
+  <button class="open-application-button" (click)="openLeaveApplicationForm()">Open Leave Application</button>
+  <table>
+    <thead>
+      <tr>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leave of leaveApplications">
+        <td>{{ leave.fromDate }}</td>
+        <td>{{ leave.toDate }}</td>
+        <td>{{ leave.reason }}</td>
+        <td>{{ leave.status }}</td>
+        <td>
+          <button (click)="viewLeaveDetails(leave)">View</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

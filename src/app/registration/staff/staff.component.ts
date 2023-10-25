@@ -3,6 +3,7 @@ import { RegistrationService } from '../registration.service';
 import { Staff } from '../staff';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-staff',
@@ -11,18 +12,19 @@ import { Router } from '@angular/router';
 })
 export class StaffComponent implements OnInit {
  
+  role: string = '';
   staffData: FormGroup; 
 
-  hod: Staff = {
+  staff: Staff = {
     name: '',
     username: '',
     email: '',
     contactNumber: '',
     password: '',
-   
+    role: ''
   };
 
-   constructor(
+    constructor(
     private fb: FormBuilder,
     private registrationService:RegistrationService,
     private router:Router
@@ -33,21 +35,21 @@ export class StaffComponent implements OnInit {
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       contactNumber: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      role: ['staff'],
     });
   }
 
   registerStaff() {
     if (this.staffData.valid) {
-       this.registrationService.registerStaff(this.staffData.value);
-       this.router.navigate(['/login']);
-     }
-   }
- 
-    ngOnInit(): void {
- 
+      this.registrationService.registerStaff(this.staffData.value);
+      console.log('Staff Registration Data:', this.staffData.value);
+      this.router.navigate(['/login']);
+    }
   }
 
 
+ngOnInit(): void {
  }
+}
 

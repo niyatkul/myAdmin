@@ -12,16 +12,18 @@ import { HodDashboardComponent } from './hod/hod-dashboard/hod-dashboard.compone
 import { StaffDashboardComponent } from './staff/staff-dashboard/staff-dashboard.component';
 
 const routes: Routes = [
-  {path:'login', component: LoginComponent, canActivate: [AuthGuard]},
+  {path: '', redirectTo: '/login', pathMatch: 'full' },
+  {path:'login', component: LoginComponent },
   {path: 'registerHod', component:HodComponent},
   {path:'registerStaff', component:StaffComponent},
-  {path: 'login/dashboard', component:DashboardComponent },
+  {path: 'login/dashboard', component:DashboardComponent, canActivate:[AuthGuard] },//facing issue 
   {path:'leaveManagement', component:LeaveManagementComponent},
   {path:'staffManagement', component:StaffManagementComponent},
   {path: 'leaveManagemnt', component:LeaveManagmentComponent},
   {path:'hod/hod-dashboard', component:HodDashboardComponent},
   {path:'staff/staff-dashboard', component:StaffDashboardComponent},
-  {path:'', redirectTo:'/login', pathMatch:'full'},
+  {path:'staff/'}
+  
 
 
 ];

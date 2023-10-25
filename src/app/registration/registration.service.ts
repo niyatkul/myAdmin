@@ -1,36 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationService {
-  constructor() { }
+ 
+ private localStorageKey = 'registrationData';
+
+  constructor() {}
 
   registerHod(hodData: any): void {
-    const hodDataList = this.getHodData();
-    hodDataList.push(hodData);
-    localStorage.setItem('hodData', JSON.stringify(hodDataList));
-    console.log('Registered Hod Data:', hodData);
+    const data = this.getRegistrationData();
+    data.hod.push(hodData);
+    data.users.push({ username: hodData.username, password: hodData.password, role: 'hod' });
+    this.setRegistrationData(data);
   }
 
   registerStaff(staffData: any): void {
-    const staffDataList = this.getStaffData(); 
-    staffDataList.push(staffData);
-    localStorage.setItem('staffData', JSON.stringify(staffDataList)); 
-    console.log('Registered Staff Data:', staffData);
+    const data = this.getRegistrationData();
+    data.staff.push(staffData);
+    data.users.push({ username: staffData.username, password: staffData.password, role: 'staff' });
+    this.setRegistrationData(data);
   }
 
-  getHodData(): any[] {
-    const hodData = JSON.parse(localStorage.getItem('hodData') || '[]');
-    return hodData;
+  getRegistrationData(): any {
+    const data = localStorage.getItem(this.localStorageKey);
+    return data ? JSON.parse(data) : { hod: [], staff: [], users: [] };
   }
 
-  getStaffData(): any[] {
-    const staffData = JSON.parse(localStorage.getItem('staffData') || '[]');
-    return staffData;
+  setRegistrationData(data: any): void {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(data));
   }
-
-
 }
-

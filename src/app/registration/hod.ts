@@ -1,10 +1,9 @@
-export interface Hod {
-
-   name: string;
+export interface HOD {
+  name: string;
   username: string;
   email: string;
   contactNumber: string;
   department: string;
   password: string;
-  profileImage?: string;
+  role: string;
 }

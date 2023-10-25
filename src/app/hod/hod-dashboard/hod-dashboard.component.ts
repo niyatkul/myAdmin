@@ -13,6 +13,6 @@ export class HodDashboardComponent {
   constructor(private dashboardService:DashboardService,
     private router: Router) {
    
-    this.totalStaff = this.dashboardService.getTotalStaffCount();
+      this.totalStaff = this.dashboardService.getTotalStaffCount();
   }
 }

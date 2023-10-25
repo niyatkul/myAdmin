@@ -1,0 +1,35 @@
+.staff-modal-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .close-button {
+    background-color: #f44336;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+  }
+  
+
+  .staff-details {
+    margin-top: 20px;
+  }
+  
+  .staff-details h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .staff-details p {
+    font-size: 16px;
+    margin: 5px 0;
+  }

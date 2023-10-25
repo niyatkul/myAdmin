@@ -8,11 +8,10 @@ export class DashboardService {
 
   constructor() {  this.userRole = 'HOD';}
 
- setUserRole(role: string) {
-    localStorage.setItem('userRole', role);
-  }
-
-  getUserRole(): string | null {
-    return localStorage.getItem('userRole');
-  }
+ getUserRole(): string | null {
+  return localStorage.getItem('userRole');
+}
+setUserRole(role: string): void {
+  localStorage.setItem('userRole', role);
+}
 }

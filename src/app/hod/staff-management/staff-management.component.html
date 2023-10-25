@@ -1,1 +1,30 @@
-<p>staff-management works!</p>
+<div class="staff-management-container">
+  <h2>HOD Staff Management</h2>
+  <button class="add-button" (click)="addStaffMember()">Add Staff Member</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let staffMember of staffMembers">
+        <td>{{ staffMember.fullName }}</td>
+        <td>{{ staffMember.username }}</td>
+        <td>{{ staffMember.email }}</td>
+        <td>{{ staffMember.mobile }}</td>
+        <td>
+          <button (click)="deleteStaffMember(staffMember)">Delete</button>
+          <div *ngIf="selectedStaffMember">
+            <!-- <app-staff-modal [staffMember]="selectedStaffMember"></app-staff-modal> -->
+          </div>
+        </td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>

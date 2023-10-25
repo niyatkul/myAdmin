@@ -1,53 +1,52 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { Observable, switchMap } from 'rxjs';
+import { LeaveManagementComponent } from '../staff/leave-management/leave-management.component';
+import { LeaveApplication } from './leave';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LeaveService {
-  private leaveRequests: any[] = [
-    {
-      fromDate: '2023-02-10',
-      toDate: '2023-02-15',
-      reason: 'Vacation',
-      status: 'Approved'
-    },
-    {
-      fromDate: '2023-03-20',
-      toDate: '2023-03-25',
-      reason: 'Sick leave',
-      status: 'Pending'
-    },
-    
-  ];
-  constructor(private leaveService:LeaveService) {
-    this.leaveRequests = this.leaveService.getLeaveRequests(); }
+  private localStorageKey = 'leaveApplications';
 
-  getLeaveRequests(): any[] {
-    return this.leaveRequests; // Returns all leave requests (you can filter by department)
-  }
-  approveLeave(leave: any) {
-    // Implement the logic to change the status to 'Approved'
-    const index = this.leaveRequests.findIndex((request) => request.srNo === leave.srNo);
-    if (index !== -1) {
-      this.leaveRequests[index].status = 'Approved';
+ constructor(private leaveService:LeaveService,
+    private http: HttpClient) { }
+
+    getLeaveApplications(): any[] {
+      const leaveApplications = JSON.parse(localStorage.getItem(this.localStorageKey) || '[]');
+      return leaveApplications;
     }
-  }
-  rejectLeave(leave: any) {
-    // Implement the logic to change the status to 'Rejected'
-    const index = this.leaveRequests.findIndex((request) => request.srNo === leave.srNo);
-    if (index !== -1) {
-      this.leaveRequests[index].status = 'Rejected';
+
+    submitLeaveRequest(leave: any) {
+      const leaveApplications = this.getLeaveApplications();
+      leaveApplications.push(leave);
+      localStorage.setItem(this.localStorageKey, JSON.stringify(leaveApplications));
     }
-  }
-  viewLeave(leave:any) {
-    const index = this.leaveRequests.findIndex((request) => request.srNo === leave.srNo);
-    if (index !== -1) {
-      this.leaveRequests[index].status = 'viewed';
-  }
-}
+    approveLeave(leave: any) {
+      //finding the leave reqto approve on store data 
+      const leaveApplications = this.getLeaveApplications();
+      const leaveIndex = leaveApplications.findIndex((item: any) => item.id === leave.id);
+       if (leaveIndex !== -1) {
+        leaveApplications[leaveIndex].status = 'Approved';
+        // Update the data in local storage
+        localStorage.setItem(this.localStorageKey, JSON.stringify(leaveApplications));
+      }
+    }
+  
+    rejectLeave(leave: any) {
+     const leaveApplications = this.getLeaveApplications();
+      const leaveIndex = leaveApplications.findIndex((item: any) => item.id === leave.id);
+    if (leaveIndex !== -1) {
+        // Update the status to "Rejected"
+        leaveApplications[leaveIndex].status = 'Rejected';
+       // Update the data in local storage
+        localStorage.setItem(this.localStorageKey, JSON.stringify(leaveApplications));
+      }
+    }
 
 
 
 
 }
+

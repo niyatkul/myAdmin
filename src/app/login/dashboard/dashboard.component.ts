@@ -6,18 +6,21 @@ import { DashboardService } from '../dashboard.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
-
-  isHOD: boolean = false;
+export class DashboardComponent implements OnInit {
+  // role: string = '';
  
- constructor(private dashboardService: DashboardService) {
-    const userData = localStorage.getItem('user');
-     
-  if (userData) {
-      const parsedUserData = JSON.parse(userData);
-      this.isHOD = parsedUserData.role === 'HOD';
-    }
-     }
- }
+  isHod: boolean = false; 
+  isStaff: boolean = false;
+
+  constructor(private dashboardService: DashboardService) { }
+
+   ngOnInit() {
+    const userRole = this.dashboardService.getUserRole();
+    this.isHod = userRole === 'hod';
+    this.isStaff = userRole === 'staff';
+  }
+
+  
+}
  
 

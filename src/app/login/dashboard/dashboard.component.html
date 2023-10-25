@@ -1,20 +1,22 @@
-<div>
-  <h1>Welcome to the Dashboard</h1>
-  <nav *ngIf="isHOD; else staffMenu">
-    <ul>
-      <li><a routerLink="/login/dashboard">Dashboard</a></li>
-      <li><a routerLink="/hod/dashboard/staff-management">Staff Management</a></li>
-      <li><a routerLink="/hod/dashboard/leave-management">Leave Management</a></li>
-    </ul>
-  </nav>
-  <ng-template #staffMenu>
-    <ul>
-      <li><a routerLink="/login/dashboard">Dashboard</a></li>
-      <li><a routerLink="/Staff/dashboard/leave-management">Leave Management</a></li>
-    </ul>
-  </ng-template>
+<h2>Dashboard</h2>
+
+<div class="dashboard-container" *ngIf="isHod">
+<!-- !hod menu -->
+  <ul class="dashboard-menu">
+    <li class="dashboard-menu-item"><a class="dashboard-link" routerLink="hod/dashboard">Dashboard</a></li>
+    <li class="dashboard-menu-item"><a class="dashboard-link" routerLink="hod/staff-management">Staff Management</a></li>
+    <li class="dashboard-menu-item"><a class="dashboard-link" routerLink="hod/leave-management">Leave Management</a></li>
+  </ul>
 </div>
+
+<div class="dashboard-container" *ngIf="isStaff">
+  <!-- Staff menu -->
+  <ul class="dashboard-menu">
+    <li class="dashboard-menu-item"><a class="dashboard-link" routerLink="staff/dashboard">Dashboard</a></li>
+    <li class="dashboard-menu-item"><a class="dashboard-link" routerLink="staff/leave-management">Leave Management</a></li>
+  </ul>
+</div>
+
      
-       
        
    

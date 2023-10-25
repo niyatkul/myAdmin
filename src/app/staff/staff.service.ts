@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LeaveApplication } from '../hod/leave';
 
 @Injectable({
   providedIn: 'root'
@@ -6,19 +7,25 @@ import { Injectable } from '@angular/core';
 export class StaffService {
 
  constructor() { }
+  private localStorageKey = 'staffData';
+  private leaveApplications: any[] = [];
 
-  getTotalLeavesApplied(): number {
-    
-    return 20; 
+//total leaves count
+getTotalLeavesApplied(): number {
+    const staffData = JSON.parse(localStorage.getItem(this.localStorageKey) || 'null') || { leaveApplications: [] };
+    return staffData.leaveApplications.length;
   }
+
   getTotalApprovedLeaves(): number {
-    
-    return 15; 
+    const staffData = JSON.parse(localStorage.getItem(this.localStorageKey) || 'null') || { leaveApplications: [] };
+    return staffData.leaveApplications.filter((app: LeaveApplication) => app.status === 'approved').length;
   }
 
+  // Simulate getting the count of rejected leaves
   getTotalRejectedLeaves(): number {
-   
-    return 5; 
+    const staffData = JSON.parse(localStorage.getItem(this.localStorageKey) || 'null') || { leaveApplications: [] };
+    return staffData.leaveApplications.filter((app: LeaveApplication) => app.status === 'rejected').length;
   }
 
+  
 }

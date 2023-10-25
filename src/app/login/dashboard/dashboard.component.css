@@ -1,0 +1,25 @@
+.dashboard-container {
+    padding: 20px;
+  }
+  
+ 
+  .dashboard-menu {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+
+  .dashboard-menu-item {
+    margin: 10px 0;
+  }
+  
+
+  .dashboard-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .dashboard-link:hover {
+    color: #007bff; 
+  }
