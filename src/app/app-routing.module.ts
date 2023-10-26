@@ -10,6 +10,9 @@ import { LeaveManagementComponent } from './staff/leave-management/leave-managem
 import { AuthGuard } from './auth.guard';
 import { HodDashboardComponent } from './hod/hod-dashboard/hod-dashboard.component';
 import { StaffDashboardComponent } from './staff/staff-dashboard/staff-dashboard.component';
+import { StaffModalComponent } from './hod/staff-modal/staff-modal.component';
+import { LeaveMComponent } from './staff/leave-m/leave-m.component';
+import { ApplyLeaveComponent } from './staff/apply-leave/apply-leave.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -17,16 +20,16 @@ const routes: Routes = [
   {path: 'registerHod', component:HodComponent},
   {path:'registerStaff', component:StaffComponent},
   {path: 'login/dashboard', component:DashboardComponent, canActivate:[AuthGuard] },//facing issue 
-  {path:'leaveManagement', component:LeaveManagementComponent},
-  {path:'staffManagement', component:StaffManagementComponent},
-  {path: 'leaveManagemnt', component:LeaveManagmentComponent},
+  {path:'hod/leave-management', component:LeaveManagementComponent},
+  {path:'hod/staff-management', component:StaffManagementComponent},
+  {path: 'staff/leave-managemnt', component:LeaveManagmentComponent},
   {path:'hod/hod-dashboard', component:HodDashboardComponent},
   {path:'staff/staff-dashboard', component:StaffDashboardComponent},
-  {path:'staff/'}
-  
+  {path:'hod/staff-modal', component:StaffModalComponent},
+  {path:'staff/leave-m', component:LeaveMComponent},
+  {path: 'staff/apply-leave' , component:ApplyLeaveComponent},
 
-
-];
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
